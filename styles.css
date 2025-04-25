@@ -6,33 +6,46 @@
   --background-color: #fff;
   --light-gray: #f5f7fa;
   --border-color: #e9ecef;
+  --section-gap: 1.8em;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   width: 21cm; /* A4 너비 */
-  min-height: 29.7cm; /* A4 높이 */
+  height: 29.7cm; /* A4 높이 */
   margin: 0 auto;
-  padding: 0;
+  padding: 1.5cm;
   background-color: var(--background-color);
   color: var(--text-color);
-  font-family: 'Spoqa Han Sans Neo', 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   line-height: 1.5;
-  font-size: 11pt;
+  font-size: 10.5pt;
+  position: relative;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap);
 }
 
 h2 {
   color: var(--secondary-color);
   font-weight: 700;
-  font-size: 1.6em;
-  margin-bottom: 1em;
-  padding-bottom: 0.5em;
+  font-size: 1.4em;
+  margin-bottom: 0.8em;
+  padding-bottom: 0.4em;
   border-bottom: 2px solid var(--secondary-color);
 }
 
 section {
-  margin-bottom: 2.5em;
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 1.5em;
+  margin-bottom: var(--section-gap);
+  page-break-inside: avoid;
 }
 
 /* 프로필 섹션 */
@@ -202,147 +215,17 @@ section {
   flex: 1;
 }
 
-/* 프린트 최적화 */
-@media print {
-  body {
-    width: 100%;
-    min-height: auto;
-    margin: 0;
-    padding: 0;
-    background-color: white;
-    font-size: 11pt;
-    line-height: 1.3;
-  }
-  
-  #profile {
-    margin-bottom: 1.2cm;
-  }
-  
-  .header-card {
-    background-color: white;
-    box-shadow: none;
-    padding: 0 0 1em 0;
-    border-bottom: 1px solid #eee;
-    border-radius: 0;
-  }
-  
-  .profile-main {
-    margin-bottom: 1em;
-  }
-  
-  .profile-basics h1 {
-    font-size: 2em;
-  }
-  
-  .tagline {
-    font-size: 1.1em;
-  }
-  
-  .profile-img {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .profile-image-container::before {
-    display: none;
-  }
-  
-  .contact-bar {
-    gap: 0.8em 1.5em;
-  }
-  
-  .contact-item {
-    font-size: 0.85em;
-  }
-  
-  /* 인쇄 시 링크 URL 표시 스타일 조정 */
-  .contact-item a[href]::after {
-    content: " (" attr(href) ")";
-    font-size: 0.85em;
-    color: #666;
-  }
-  
-  section {
-    break-inside: avoid;
-  }
-}
-
-/* 반응형 디자인 */
-@media (max-width: 768px) {
-  .profile-main {
-    flex-direction: column-reverse;
-    text-align: center;
-    gap: 1.5em;
-  }
-  
-  .profile-basics {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .tagline::after {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .contact-bar {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.7em;
-  }
-  
-  .intro-container {
-    flex-direction: column;
-    gap: 1em;
-    align-items: center;
-  }
-  
-  .intro-marker {
-    flex: 0 0 auto;
-    width: 100%;
-    height: 20px;
-  }
-  
-  .marker-line {
-    top: 50%;
-    bottom: auto;
-    left: 0;
-    right: 0;
-    width: auto;
-    height: 2px;
-    transform: translateY(-50%);
-  }
-  
-  .marker-dot {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .intro-text {
-    text-align: center;
-  }
-}
-
 /* 어바웃 섹션 */
-#about {
-  margin-bottom: 1.5em;
-}
-
-#about h2 {
-  color: var(--secondary-color);
-  margin-bottom: 0.8em;
-  padding-bottom: 0.3em;
-  border-bottom: 2px solid var(--secondary-color);
-}
-
 .about-content {
-  max-width: 800px;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
 }
 
 .about-intro {
-  font-weight: bold;
+  grid-column: 1 / -1;
+  font-weight: 500;
   color: var(--primary-color);
   margin-bottom: 0.5em;
 }
@@ -350,57 +233,64 @@ section {
 .about-item {
   margin-bottom: 0.5em;
   line-height: 1.4;
+  background-color: var(--light-gray);
+  padding: 0.8em 1em;
+  border-radius: 6px;
 }
 
 .about-keyword {
-  font-weight: bold;
+  font-weight: 600;
   color: var(--secondary-color);
   margin-right: 0.3em;
-}
-
-@media (max-width: 768px) {
-  .about-content {
-    padding: 0 10px;
-  }
+  display: block;
+  margin-bottom: 0.3em;
 }
 
 /* 스킬 섹션 */
 .skills-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
+  gap: 1.2em;
 }
 
 .skill-item {
   background-color: #f8f9fa;
-  border-radius: 12px;
-  padding: 24px;
+  border-radius: 8px;
+  padding: 1.2em;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.skill-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .skill-item h3 {
   color: var(--secondary-color);
-  margin-bottom: 16px;
-  font-size: 1.2em;
+  margin-bottom: 0.8em;
+  font-size: 1.1em;
   font-weight: 600;
+  position: relative;
+  padding-bottom: 0.4em;
+}
+
+.skill-item h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: var(--secondary-color);
 }
 
 .skill-item ul {
-  padding-left: 20px;
+  padding-left: 1.2em;
   margin: 0;
 }
 
 .skill-item li {
-  font-size: 0.95em;
-  line-height: 1.6;
+  font-size: 0.92em;
+  line-height: 1.5;
   color: var(--text-color);
-  margin-bottom: 12px;
+  margin-bottom: 0.6em;
   word-break: keep-all;
 }
 
@@ -409,26 +299,26 @@ section {
 }
 
 /* 프로젝트 섹션 */
-/* 프로젝트 섹션 */
 .project-container {
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 1.5em;
 }
 
 .project-item {
   background-color: #f8f9fa;
   border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1.5em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-left: 4px solid var(--secondary-color);
 }
 
 .project-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 1.5em;
-  padding-bottom: 1em;
+  margin-bottom: 1.2em;
+  padding-bottom: 0.8em;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -440,7 +330,7 @@ section {
 
 .project-title-group h3 {
   color: var(--secondary-color);
-  font-size: 1.4em;
+  font-size: 1.2em;
   margin: 0;
 }
 
@@ -457,7 +347,7 @@ section {
 }
 
 .project-duration {
-  font-size: 0.9em;
+  font-size: 0.85em;
   color: #666;
 }
 
@@ -468,19 +358,19 @@ section {
 .project-content {
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
+  gap: 1em;
 }
 
 .project-content h4 {
   color: var(--primary-color);
-  font-size: 1.1em;
-  margin-bottom: 0.8em;
+  font-size: 1em;
+  margin-bottom: 0.5em;
   font-weight: 600;
 }
 
 .project-summary p {
-  font-size: 0.95em;
-  line-height: 1.6;
+  font-size: 0.92em;
+  line-height: 1.5;
   color: #444;
 }
 
@@ -491,24 +381,31 @@ section {
 }
 
 .highlight-major {
-  margin-bottom: 1em;
+  margin-bottom: 0.8em;
 }
 
 .highlight-major strong {
   display: block;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.4em;
   color: var(--secondary-color);
+  font-weight: 600;
 }
 
 .highlight-major ul {
   padding-left: 1.2em;
-  margin-top: 0.5em;
+  margin-top: 0.4em;
+}
+
+.highlight-major ul li {
+  font-size: 0.9em;
+  margin-bottom: 0.3em;
 }
 
 .highlight-item {
-  margin-bottom: 0.8em;
+  margin-bottom: 0.6em;
   padding-left: 1.2em;
   position: relative;
+  font-size: 0.9em;
 }
 
 .highlight-item::before {
@@ -519,7 +416,7 @@ section {
 }
 
 .project-tech-stack {
-  margin-top: 1em;
+  margin-top: 0.8em;
 }
 
 .tech-tags {
@@ -531,17 +428,17 @@ section {
 .tech-tag {
   background-color: #e3f2fd;
   color: #1976d2;
-  padding: 4px 12px;
+  padding: 4px 10px;
   border-radius: 16px;
-  font-size: 0.9em;
+  font-size: 0.8em;
   font-weight: 500;
 }
 
 .project-links {
   display: flex;
   gap: 12px;
-  margin-top: 1.5em;
-  padding-top: 1em;
+  margin-top: 1em;
+  padding-top: 0.8em;
   border-top: 1px solid var(--border-color);
 }
 
@@ -550,9 +447,9 @@ section {
   align-items: center;
   gap: 6px;
   text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-size: 0.9em;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85em;
   transition: all 0.2s ease;
 }
 
@@ -566,58 +463,34 @@ section {
   color: white;
 }
 
-.project-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-@media (max-width: 768px) {
-  .project-header {
-    flex-direction: column;
-    gap: 0.5em;
-  }
-  
-  .tech-tags {
-    gap: 6px;
-  }
-  
-  .project-links {
-    flex-direction: column;
-  }
-  
-  .project-link {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
 /* 교육 섹션 */
 #education h3 {
   color: var(--secondary-color);
-  margin-top: 1.5em;
+  margin-top: 1.2em;
   margin-bottom: 0.8em;
-  font-size: 1.2em;
+  font-size: 1.1em;
+  font-weight: 600;
 }
 
 .education-container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
 }
 
 .education-item {
   display: flex;
-  gap: 15px;
+  gap: 1em;
   align-items: flex-start;
   background-color: #f8f9fa;
   border-radius: 8px;
-  padding: 12px;
+  padding: 1em;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .education-date {
   min-width: 110px;
-  font-weight: bold;
+  font-weight: 600;
   color: var(--secondary-color);
 }
 
@@ -626,25 +499,16 @@ section {
 }
 
 .education-content h4 {
-  margin: 0 0 5px 0;
+  margin: 0 0 4px 0;
   color: var(--primary-color);
   font-size: 1em;
+  font-weight: 600;
 }
 
 .education-description {
   font-size: 0.9em;
   margin: 0;
   color: var(--text-color);
-}
-
-@media (max-width: 600px) {
-  .education-item {
-    flex-direction: column;
-  }
-
-  .education-date {
-    margin-bottom: 5px;
-  }
 }
 
 /* 자격증 섹션 */
@@ -673,102 +537,87 @@ section {
   color: var(--secondary-color);
 }
 
+/* PDF 출력 최적화 */
 @media print {
   body {
-    font-size: 11pt;
-    line-height: 1.2;
-    padding: 0;
+    width: 21cm;
+    height: 29.7cm;
+    margin: 0;
+    padding: 1cm;
+    background-color: white;
+    font-size: 9pt;
+    line-height: 1.3;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
   section {
-    margin-bottom: 15pt;
-    break-inside: avoid; /* 섹션이 중간에 잘리지 않도록 설정 */
+    page-break-inside: avoid;
+    margin-bottom: 1.5em;
   }
 
-  /* 프로필과 자기소개는 첫 페이지에 */
-  #profile {
-    break-before: avoid;
-    break-inside: avoid;
-  }
-  
+  /* 첫 페이지 요소들 */
+  #profile,
   #about {
-    break-before: avoid;
-    break-inside: avoid;
+    page-break-before: avoid;
+    page-break-after: auto;
   }
 
-  /* 스킬은 새 페이지에서 시작 */
+  /* 스킬은 첫 페이지 또는 두 번째 페이지 */
   #skills {
-    break-before: always;
-    break-inside: avoid;
+    page-break-before: auto;
+    page-break-after: auto;
   }
 
-  /* 프로젝트는 새 페이지에서 시작 */
-  #projects {
-    break-before: always;
-    break-inside: avoid;
-  }
-
+  /* 프로젝트는 별도 페이지에 배치 */
   .project-container {
-    break-inside: avoid;
+    page-break-before: always;
+    page-break-inside: avoid;
   }
 
-  .project-item {
-    break-inside: avoid;
-    margin-bottom: 20pt;
-  }
-
-  .skill-item {
-    break-inside: avoid;
-    margin-bottom: 15pt;
-  }
-
-  /* 교육은 새 페이지에서 시작 */
-  #education {
-    break-before: always;
-    break-inside: avoid;
-  }
-
-  /* 자격증은 교육과 같은 페이지에 두되, 잘리면 다음 페이지로 */
+  /* 교육과 자격증은 함께 배치 */
+  #education,
   #certifications {
-    break-inside: avoid;
-  }
-
-  h2 {
-    margin-top: 20pt;
+    page-break-before: auto;
+    page-break-inside: avoid;
   }
 
   /* 링크 스타일 */
   a {
-    color: var(--link-color);
-    text-decoration: underline;
+    text-decoration: none;
+    color: inherit;
   }
 
-  a[href]::after {
-    content: " (" attr(href) ")";
-    font-size: 90%;
-    color: #666;
-  }
-
-  /* 프로젝트 링크 버튼 스타일 유지 */
-  .project-link {
-    color: #fff !important;
-    text-decoration: none !important;
-  }
-  
+  /* 프로젝트 링크 자동 URL 표시 숨김 */
   .project-link::after {
     display: none;
   }
 
-  /* 프로젝트 링크는 버튼 아래에 URL 표시 */
-  .project-links {
-    flex-direction: column;
+  .header-card {
+    background-color: #f8f9fa !important;
   }
 
-  .project-links::after {
-    content: "GitHub: " attr(data-github) "\A배포 링크: " attr(data-deploy);
-    white-space: pre-line;
-    font-size: 90%;
-    color: #666;
-    margin-top: 8px;
+  .intro-container {
+    background-color: #e2f0ff !important;
+  }
+
+  .about-item, 
+  .skill-item, 
+  .project-item, 
+  .education-item, 
+  .certification-list li {
+    background-color: #f8f9fa !important;
+  }
+
+  .tech-tag {
+    background-color: #e3f2fd !important;
+  }
+
+  .project-link.github {
+    background-color: #24292e !important;
+  }
+
+  .project-link.deploy {
+    background-color: #3182f6 !important;
   }
 }
