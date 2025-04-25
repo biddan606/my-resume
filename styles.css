@@ -594,9 +594,19 @@ section {
     color: inherit;
   }
 
-  /* 프로젝트 링크 자동 URL 표시 숨김 */
+  /* 프로젝트 링크 스타일 조정 및 URL 표시 설정 */
+  .project-link {
+    padding: 2px 6px;
+    font-size: 0.75em;
+    display: inline-block;
+    margin-right: 8px;
+  }
+  
   .project-link::after {
-    display: none;
+    content: " (" attr(href) ")";
+    font-size: 0.9em;
+    font-style: italic;
+    color: #666;
   }
 
   .header-card {
@@ -621,13 +631,22 @@ section {
 
   .project-link.github {
     background-color: #24292e !important;
+    color: white !important;
   }
 
   .project-link.deploy {
     background-color: #3182f6 !important;
+    color: white !important;
   }
 
   .project-link.docs {
     background-color: #34a853 !important;
+    color: white !important;
+  }
+  
+  /* 프로젝트 링크 섹션 조정 */
+  .project-links {
+    gap: 6px;
+    flex-wrap: wrap;
   }
 }
