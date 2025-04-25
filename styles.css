@@ -463,6 +463,12 @@ section {
   color: white;
 }
 
+
+.project-link.docs {
+  background-color: #34a853;
+  color: white;
+}
+
 /* 교육 섹션 */
 #education h3 {
   color: var(--secondary-color);
@@ -619,5 +625,9 @@ section {
 
   .project-link.deploy {
     background-color: #3182f6 !important;
+  }
+
+  .project-link.docs {
+    background-color: #34a853 !important;
   }
 }
