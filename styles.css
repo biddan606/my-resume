@@ -384,11 +384,32 @@ section {
   margin-bottom: 0.8em;
 }
 
-.highlight-major strong {
-  display: block;
-  margin-bottom: 0.4em;
+.highlight-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.6em;
+  gap: 10px;
+}
+
+.implementation-text {
   color: var(--secondary-color);
   font-weight: 600;
+}
+
+.result-text {
+  color: #34a853;
+  font-weight: 600;
+}
+
+.highlight-arrow {
+  color: #888;
+  font-size: 1.1em;
+  margin: 0 6px;
+}
+
+.highlight-major strong {
+  display: inline;
+  margin-bottom: 0;
 }
 
 .highlight-major ul {
