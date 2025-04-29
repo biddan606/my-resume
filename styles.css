@@ -536,11 +536,26 @@ section {
 }
 
 .certification-name {
-  font-weight: bold;
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 1em;
+}
+
+.certification-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .certification-date {
   color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.certification-org {
+  font-size: 0.9em;
+  color: var(--text-color);
+  margin-top: 4px;
 }
 
 /* PDF 출력 최적화 */
