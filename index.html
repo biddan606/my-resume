@@ -128,6 +128,7 @@
           <p class="project-duration"><i class="far fa-calendar-alt"></i> 2025.04 - 현재</p>
         </div>
 
+        <!-- 수정된 프로젝트 항목 (구현/결과 구분) -->
         <div class="project-content">
           <div class="project-summary">
             <h4>프로젝트 개요</h4>
@@ -147,14 +148,25 @@
                   <!-- 결과: 이로 인한 비즈니스/개발 가치 -->
                   <span class="result-text">비즈니스 요구사항 정확한 구현과 개발 병렬화</span>
                 </div>
-                <ul>
-                  <!-- 구현 세부사항 -->
-                  <li>도메인 개념 분석과 모델링을 통한 API 설계 (UI가 아닌 비즈니스 중심)</li>
-                  <li>OpenAPI 3.0 표준을 준수한 상세 API 명세 작성 및 유지 관리</li>
-                  <li>Docker-compose와 Redoc으로 자동화된 API 문서 배포 시스템 구축</li>
-                  <!-- 결과 세부사항 -->
-                  <li>프론트엔드 팀과의 API 계약을 통한 동시 개발로 출시 기간 단축</li>
-                </ul>
+
+                <!-- 구현 세부사항 섹션 -->
+                <div class="implementation-details">
+                  <strong>구현 세부사항:</strong>
+                  <ul>
+                    <li>도메인 개념 분석과 모델링을 통한 API 설계 (UI가 아닌 비즈니스 중심)</li>
+                    <li>OpenAPI 3.0 표준을 준수한 상세 API 명세 작성 및 유지 관리</li>
+                    <li>Docker-compose와 Redoc으로 자동화된 API 문서 배포 시스템 구축</li>
+                  </ul>
+                </div>
+
+                <!-- 결과 세부사항 섹션 -->
+                <div class="result-details">
+                  <strong>결과 효과:</strong>
+                  <ul>
+                    <li>프론트엔드 팀과의 API 계약을 통한 동시 개발로 출시 기간 단축</li>
+                    <li>개발자 간 명확한 API 이해로 통합 과정에서의 오류 감소</li>
+                  </ul>
+                </div>
               </li>
 
               <li class="highlight-major">
@@ -165,15 +177,26 @@
                   <!-- 결과: 이로 인한 비즈니스/개발 가치 -->
                   <span class="result-text">리소스 관계 명확화 및 네트워크 요청 최소화</span>
                 </div>
-                <ul>
-                  <!-- 구현 세부사항 -->
-                  <li>JSON:API 표준을 활용한 관계형 리소스의 일관된 표현 방식 구현</li>
-                  <li>RFC 9457 ProblemDetail 스펙 기반의 체계적인 오류 처리 시스템 개발</li>
-                  <!-- 결과 세부사항 -->
-                  <li>복잡한 리소스 관계를 명확히 표현하고 단일 요청으로 연관 데이터 효율적 조회</li>
-                  <li>리소스 기반 프론트엔드 요청 최적화로 네트워크 트래픽 감소 및 확장성 확보</li>
-                  <li>일관된 오류 응답 형식으로 API 전반에 예측 가능한 오류 처리 및 모니터링 용이</li>
-                </ul>
+
+                <!-- 구현 세부사항 섹션 -->
+                <div class="implementation-details">
+                  <strong>구현 세부사항:</strong>
+                  <ul>
+                    <li>JSON:API 표준을 활용한 관계형 리소스의 일관된 표현 방식 구현</li>
+                    <li>RFC 9457 ProblemDetail 스펙 기반의 체계적인 오류 처리 시스템 개발</li>
+                    <li>리소스 간 관계 표현을 위한 커스텀 JSON 변환 로직 구현</li>
+                  </ul>
+                </div>
+
+                <!-- 결과 세부사항 섹션 -->
+                <div class="result-details">
+                  <strong>결과 효과:</strong>
+                  <ul>
+                    <li>복잡한 리소스 관계를 명확히 표현하고 단일 요청으로 연관 데이터 효율적 조회</li>
+                    <li>리소스 기반 프론트엔드 요청 최적화로 네트워크 트래픽 감소 및 확장성 확보</li>
+                    <li>일관된 오류 응답 형식으로 API 전반에 예측 가능한 오류 처리 및 모니터링 용이</li>
+                  </ul>
+                </div>
               </li>
             </ul>
           </div>

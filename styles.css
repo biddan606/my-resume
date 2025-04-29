@@ -401,6 +401,45 @@ section {
   font-weight: 600;
 }
 
+/* 구현/결과 세부사항 컨테이너 스타일 */
+.implementation-details,
+.result-details {
+  margin-bottom: 0.8em;
+  padding-left: 0.5em;
+  border-left: 2px solid #e9ecef;
+}
+
+/* 구현/결과 구분을 위한 색상 차별화 */
+.implementation-details {
+  border-left-color: var(--secondary-color);
+}
+
+.result-details {
+  border-left-color: #34a853;
+}
+
+/* 세부사항 제목 스타일 */
+.implementation-details strong,
+.result-details strong {
+  display: inline-block;
+  margin-bottom: 0.5em;
+  font-size: 0.9em;
+}
+
+/* 세부사항 리스트 스타일 */
+.implementation-details ul,
+.result-details ul {
+  padding-left: 1.2em;
+  margin-top: 0.2em;
+  margin-bottom: 0.5em;
+}
+
+.implementation-details li,
+.result-details li {
+  font-size: 0.9em;
+  margin-bottom: 0.3em;
+}
+
 .highlight-arrow {
   color: #888;
   font-size: 1.1em;
@@ -684,5 +723,18 @@ section {
   .project-links {
     gap: 6px;
     flex-wrap: wrap;
+  }
+
+  .implementation-details,
+  .result-details {
+    border-left-width: 1px;
+  }
+  
+  .implementation-details {
+    border-left-color: #3182f6 !important;
+  }
+  
+  .result-details {
+    border-left-color: #34a853 !important;
   }
 }
