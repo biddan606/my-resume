@@ -117,6 +117,25 @@ section {
   border-radius: 2px;
 }
 
+.one-line-intro {
+  margin-bottom: 2em;
+  margin-top: 0.5em;
+  padding: 0.5em 1em;
+  text-align: center;
+}
+
+.one-line-intro h1 {
+  margin: 0 auto;
+  color: var(--primary-color);
+  font-size: 1.4em;
+  font-weight: 600;
+  line-height: 1.5;
+  max-width: 90%;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+
 .profile-image-container {
   position: relative;
   z-index: 1;
@@ -676,6 +695,14 @@ section {
     page-break-inside: avoid;
     margin-bottom: 1.5em;
   }
+
+  /* .one-line-intro {
+    margin-bottom: 1em;
+  }
+
+  .one-line-intro h1 {
+    color: var(--primary-color) !important;
+  } */
 
   #profile,
   #about {
