@@ -686,7 +686,7 @@ section {
   body {
     width: 21cm;
     height: 29.7cm;
-    margin: 0;
+    margin: 0 auto;
     padding: 1cm;
     background-color: white;
     font-size: 9pt;
