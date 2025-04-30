@@ -118,19 +118,19 @@ section {
 }
 
 .one-line-intro {
-  margin-bottom: 2em;
-  margin-top: 0.5em;
-  padding: 0.5em 1em;
+  margin-bottom: 1.5em;
+  padding: 0.8em 0 1em 0;
   text-align: center;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
 .one-line-intro h1 {
   margin: 0 auto;
   color: var(--primary-color);
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-weight: 600;
   line-height: 1.5;
-  max-width: 90%;
+  max-width: 95%;
   word-break: keep-all;
   overflow-wrap: break-word;
 }
@@ -642,6 +642,10 @@ section {
     padding: 1em;
   }
   
+  .one-line-intro h1 {
+    font-size: 1.1em;
+  }
+
   .about-content {
     grid-template-columns: 1fr;
   }
@@ -696,18 +700,19 @@ section {
     margin-bottom: 1.5em;
   }
 
-  /* .one-line-intro {
-    margin-bottom: 1em;
-  }
-
-  .one-line-intro h1 {
-    color: var(--primary-color) !important;
-  } */
-
   #profile,
   #about {
     page-break-before: avoid;
     page-break-after: auto;
+  }
+
+  .one-line-intro {
+    padding: 0.5em 0 1em 0;
+    border-bottom-color: rgba(0,0,0,0.1) !important;
+  }
+  
+  .one-line-intro h1 {
+    font-size: 1.1em;
   }
 
   #skills {
@@ -757,7 +762,13 @@ section {
   
   /* 배경색 관련 스타일 */
   .header-card {
-    background-color: #f8f9fa !important;
+    position: relative;
+    margin-bottom: 1.5em;
+    padding: 1.5em;
+    overflow: hidden;
+    background-color: var(--light-gray);
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.03);
   }
 
   .intro-container {
