@@ -7,10 +7,15 @@
   --light-gray: #f5f7fa;
   --border-color: #e9ecef;
   --section-gap: 2em;
-  --medium-gray: #555; 
-  --result-color: #34a853; 
-  --implementation-bg: rgba(49, 130, 246, 0.05); 
-  --result-bg: rgba(52, 168, 83, 0.05); 
+  --medium-gray: #555;
+  --result-color: #16a085;
+  --implementation-bg: rgba(49, 130, 246, 0.05);
+  --result-bg: rgba(22, 160, 133, 0.05);
+  --problem-color: #e74c3c;
+  --problem-bg: rgba(231, 76, 60, 0.05);
+  --implementation-color: #3182f6;
+  --tech-color: #16a085;
+  --tech-bg: rgba(22, 160, 133, 0.05);
 }
 
 * {
@@ -286,6 +291,14 @@ section {
 }
 
 /* 스킬 섹션 */
+.skills-intro {
+  margin-bottom: 1.5em;
+  color: var(--primary-color);
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: center;
+}
+
 .skills-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -299,6 +312,7 @@ section {
   background-color: #f8f9fa;
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-left: 4px solid var(--secondary-color);
 }
 
 .skill-item h3 {
@@ -306,35 +320,25 @@ section {
   margin-bottom: 1em;
   padding-bottom: 0.5em;
   border-bottom: 1px solid var(--border-color);
-}
-
-.skill-item h3 i {
-  margin-right: 0.5em;
   color: var(--secondary-color);
 }
 
-.skill-item ul {
-  margin: 0;
-  padding-left: 1.2em;
+.skill-reason h4 {
+  color: var(--primary-color);
+  font-size: 0.9em;
+  font-weight: 600;
+  margin-bottom: 0.5em;
 }
 
-.skill-item li {
-  margin-bottom: 0.8em;
+.skill-reason p {
+  margin: 0;
   color: var(--text-color);
-  font-size: 0.92em;
-  line-height: 1.5;
+  font-size: 0.9em;
+  line-height: 1.6;
   word-break: keep-all;
 }
 
-.skill-item li strong {
-  color: var(--secondary-color);
-}
-
-.skill-item li:last-child {
-  margin-bottom: 0;
-}
-
-/* 프로젝트 섹션 */
+/* 프로젝트 섹션 - 스토리텔링 구조 */
 .project-container {
   display: flex;
   flex-direction: column;
@@ -379,6 +383,11 @@ section {
 .project-status.ongoing {
   background-color: #e3f2fd;
   color: #1976d2;
+}
+
+.project-status.completed {
+  background-color: #e8f5e8;
+  color: #2e7d32;
 }
 
 .project-duration {
@@ -520,6 +529,409 @@ section {
   font-size: 0.8em;
   font-weight: 500;
 }
+
+/* Problem-Action-Result 구조 스타일 */
+.project-problem,
+.project-action,
+.project-result {
+  margin-bottom: 1.5em;
+  padding: 1.2em;
+  border-radius: 8px;
+  border-left: 4px solid;
+}
+
+.project-problem {
+  border-left-color: #ff6b6b;
+  background-color: rgba(255, 107, 107, 0.05);
+}
+
+.project-action {
+  border-left-color: var(--secondary-color);
+  background-color: var(--implementation-bg);
+}
+
+.project-result {
+  border-left-color: var(--result-color);
+  background-color: var(--result-bg);
+}
+
+.action-step {
+  margin-bottom: 1.2em;
+  padding: 1em;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 6px;
+  border-left: 2px solid var(--secondary-color);
+}
+
+.action-step h5 {
+  color: var(--secondary-color);
+  font-size: 1em;
+  font-weight: 600;
+  margin-bottom: 0.6em;
+}
+
+.technology-choices {
+  margin-top: 1.5em;
+  padding: 1.2em;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  border: 1px solid rgba(49, 130, 246, 0.2);
+}
+
+.tech-choice {
+  margin-bottom: 1em;
+  padding: 0.8em;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 6px;
+  border-left: 2px solid #34a853;
+}
+
+.tech-choice:last-child {
+  margin-bottom: 0;
+}
+
+.tech-choice h5 {
+  color: #34a853;
+  font-size: 0.95em;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+.tech-choice p {
+  font-size: 0.9em;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.result-metrics {
+  margin-bottom: 1.2em;
+}
+
+.result-metrics ul {
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.result-metrics li {
+  margin-bottom: 0.6em;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+.learning-outcome {
+  padding: 1em;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 6px;
+  border-left: 3px solid var(--result-color);
+}
+
+.learning-outcome h5 {
+  color: var(--result-color);
+  font-size: 1em;
+  font-weight: 600;
+  margin-bottom: 0.8em;
+}
+
+.learning-outcome p {
+  font-size: 0.9em;
+  line-height: 1.6;
+  margin-bottom: 0.8em;
+}
+
+.learning-outcome ul {
+  margin: 0 0 0.8em 0;
+  padding-left: 1.2em;
+}
+
+.learning-outcome li {
+  margin-bottom: 0.5em;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+/* AI 페이스메이커 프로젝트 전용 스타일 */
+.project-overview {
+  margin-bottom: 1.8em;
+  padding: 1.2em;
+  background-color: rgba(49, 130, 246, 0.08);
+  border-radius: 10px;
+  border-left: 4px solid var(--secondary-color);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.project-overview p {
+  margin: 0;
+  font-size: 1em;
+  line-height: 1.7;
+  color: var(--text-color);
+  word-break: keep-all;
+}
+
+/* 새로운 3단계 구조 스타일 */
+.project-section {
+  margin-bottom: 2em;
+  padding: 1.4em;
+  border-radius: 10px;
+  border-left: 4px solid;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.problem-section {
+  border-left-color: var(--problem-color);
+  background-color: var(--problem-bg);
+}
+
+.implementation-section {
+  border-left-color: var(--implementation-color);
+  background-color: var(--implementation-bg);
+}
+
+.tech-section {
+  border-left-color: var(--tech-color);
+  background-color: var(--tech-bg);
+}
+
+.project-section h4 {
+  margin-bottom: 1.2em;
+  font-size: 1.1em;
+  font-weight: 700;
+  color: var(--primary-color);
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+  padding-bottom: 0.5em;
+}
+
+.project-section h5 {
+  margin-bottom: 0.8em;
+  margin-top: 1.2em;
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.project-section h5:first-child {
+  margin-top: 0;
+}
+
+.project-section p {
+  margin-bottom: 1em;
+  font-size: 0.95em;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+
+.project-section ul {
+  margin: 1em 0;
+  padding-left: 1.2em;
+}
+
+.project-section li {
+  margin-bottom: 0.6em;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+/* 문제 정의 및 목표 내부 요소 */
+.problem-definition,
+.solution-goal {
+  margin-bottom: 1.5em;
+  padding: 1.2em;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+}
+
+/* 기능 구현 및 해결 과정 내부 요소 */
+.feature-implementation {
+  margin-bottom: 1.5em;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5em;
+  padding: 1.2em;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+}
+
+.feature-number {
+  flex: 0 0 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1em;
+  background-color: var(--secondary-color);
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.feature-content {
+  flex: 1;
+}
+
+.feature-content h6 {
+  margin-bottom: 0.8em;
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.feature-content p {
+  margin: 0;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+.core-challenge {
+  margin-bottom: 1.5em;
+  padding: 1.2em;
+  background-color: rgba(255, 193, 7, 0.08);
+  border-radius: 8px;
+}
+
+.implementation-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 1em;
+}
+
+.highlight {
+  padding: 4px 10px;
+  background-color: rgba(49, 130, 246, 0.1);
+  border-radius: 16px;
+  font-size: 0.8em;
+  font-weight: 500;
+  color: var(--implementation-color);
+  border: 1px solid rgba(49, 130, 246, 0.2);
+}
+
+.implementation-details {
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.implementation-details li {
+  margin-bottom: 0.8em;
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+.tech-architecture {
+  margin-top: 1.5em;
+  padding: 1.2em;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  border: 1px solid rgba(49, 130, 246, 0.2);
+}
+
+/* 테크 스택 및 아키텍처 내부 요소 */
+.tech-choice-section {
+  margin-bottom: 1.2em;
+  padding: 1.2em;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+
+.tech-choice-section:last-of-type {
+  margin-bottom: 1.5em;
+}
+
+.tech-choice-section h5 {
+  color: var(--tech-color);
+  font-size: 1em;
+  font-weight: 600;
+  margin-bottom: 0.8em;
+}
+
+.tech-choice-section p {
+  margin: 0;
+  font-size: 0.95em;
+  line-height: 1.6;
+  color: var(--text-color);
+  word-break: keep-all;
+}
+
+.architecture-summary {
+  margin-bottom: 1.5em;
+  padding: 1.2em;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+}
+
+.architecture-summary h5 {
+  color: var(--secondary-color);
+  font-size: 1em;
+  font-weight: 600;
+  margin-bottom: 0.8em;
+}
+
+.architecture-summary ul {
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.architecture-summary li {
+  margin-bottom: 0.8em;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+.project-impact {
+  padding: 1.2em;
+  background-color: var(--tech-bg);
+  border-radius: 8px;
+}
+
+.project-impact h5 {
+  color: var(--tech-color);
+  font-size: 1em;
+  font-weight: 600;
+  margin-bottom: 0.8em;
+}
+
+.project-impact p {
+  margin: 0;
+  font-size: 0.95em;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+
+.architecture-details h5 {
+  color: var(--secondary-color);
+  font-size: 0.95em;
+  font-weight: 600;
+  margin-bottom: 0.6em;
+}
+
+.architecture-details ul {
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.architecture-details li {
+  margin-bottom: 0.8em;
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+.immediate-results {
+  margin-bottom: 1.2em;
+  padding: 1em;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 6px;
+  border-left: 3px solid var(--result-color);
+}
+
+.immediate-results p {
+  margin: 0;
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
 
 .project-links {
   display: flex;
