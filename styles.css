@@ -6,7 +6,9 @@
   --background-color: #fff;
   --light-gray: #f5f7fa;
   --border-color: #e9ecef;
-  --section-gap: 2em;
+  --section-gap-large: 2.5em;
+  --section-gap-medium: 1.8em;
+  --section-gap-small: 1.2em;
   --medium-gray: #555;
   --result-color: #16a085;
   --implementation-bg: rgba(49, 130, 246, 0.05);
@@ -40,7 +42,7 @@ body {
 main {
   display: flex;
   flex-direction: column;
-  gap: var(--section-gap);
+  gap: var(--section-gap-medium);
 }
 
 h2 {
@@ -71,13 +73,25 @@ h4 {
 }
 
 section {
-  margin-bottom: var(--section-gap);
   page-break-inside: avoid;
+}
+
+/* 섹션별 차별화된 간격 */
+#profile {
+  margin-bottom: var(--section-gap-large);
+}
+
+#projects {
+  margin-bottom: var(--section-gap-medium);
+}
+
+#education,
+#certifications {
+  margin-bottom: var(--section-gap-small);
 }
 
 /* 프로필 섹션 */
 #profile {
-  margin-bottom: 2em;
   break-inside: avoid;
 }
 
@@ -250,9 +264,9 @@ section {
 .intro-text {
   flex: 1;
   margin: 0;
-  padding: a;
+  padding: 0;
   font-size: 1em;
-  line-height: 1.7;
+  line-height: 1.6;
   color: var(--text-color);
   word-break: keep-all;
 }
@@ -360,6 +374,13 @@ section {
   margin-bottom: 1.2em;
   padding-bottom: 0.8em;
   border-bottom: 1px solid var(--border-color);
+}
+
+.project-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
 }
 
 .project-title-group {
@@ -669,11 +690,15 @@ section {
 
 /* 새로운 3단계 구조 스타일 */
 .project-section {
-  margin-bottom: 2em;
-  padding: 1.4em;
+  margin-bottom: 1.6em;
+  padding: 1.3em;
   border-radius: 10px;
   border-left: 4px solid;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.project-section:last-child {
+  margin-bottom: 0;
 }
 
 .problem-section {
@@ -701,8 +726,8 @@ section {
 }
 
 .project-section h5 {
-  margin-bottom: 0.8em;
-  margin-top: 1.2em;
+  margin-bottom: 0.7em;
+  margin-top: 1em;
   font-size: 1em;
   font-weight: 600;
   color: var(--secondary-color);
@@ -713,9 +738,9 @@ section {
 }
 
 .project-section p {
-  margin-bottom: 1em;
+  margin-bottom: 0.8em;
   font-size: 0.95em;
-  line-height: 1.7;
+  line-height: 1.6;
   word-break: keep-all;
 }
 
@@ -747,8 +772,8 @@ section {
 .feature-item {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 1.5em;
-  padding: 1.2em;
+  margin-bottom: 1.2em;
+  padding: 1.1em;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
 }
@@ -973,8 +998,8 @@ section {
 
 /* 교육 섹션 */
 #education h3 {
-  margin-top: 1.2em;
-  margin-bottom: 0.8em;
+  margin-top: 1em;
+  margin-bottom: 0.7em;
 }
 
 .education-container {
@@ -1089,9 +1114,14 @@ section {
   .project-header {
     flex-direction: column;
   }
-  
-  .project-duration {
+
+  .project-meta {
+    align-items: flex-start;
     margin-top: 0.5em;
+  }
+
+  .project-duration {
+    margin-top: 0;
   }
   
   .highlight-title {
@@ -1120,7 +1150,7 @@ section {
   }
 
   main {
-    gap: 1.2em;
+    gap: 1em;
   }
 
   /* ===== 독립 블록 설정 - 각 블록이 페이지에 온전히 위치 ===== */
@@ -1222,6 +1252,7 @@ section {
     border-left-width: 1px;
   }
   
+
   /* 배경색 관련 스타일 */
   .header-card {
     position: relative;
