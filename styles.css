@@ -90,6 +90,65 @@ section {
   margin-bottom: var(--section-gap-small);
 }
 
+/* 지원동기 섹션 - 내용이 없거나 주석만 있을 때 숨김 */
+#motivation:has(.motivation-content:empty),
+#motivation:not(:has(.motivation-item)) {
+  display: none;
+}
+
+#motivation {
+  margin-bottom: var(--section-gap-medium);
+}
+
+.motivation-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+}
+
+.motivation-item {
+  padding: 1.2em;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid var(--secondary-color);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.motivation-item h4 {
+  color: var(--secondary-color);
+  font-size: 1em;
+  font-weight: 600;
+  margin-bottom: 0.6em;
+}
+
+.motivation-item p {
+  margin: 0;
+  font-size: 0.95em;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+.motivation-summary {
+  margin: 0 0 0.5em 0;
+  padding: 1em 1.2em;
+  background-color: rgba(49, 130, 246, 0.08);
+  border-radius: 8px;
+  font-size: 0.95em;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+.motivation-closing {
+  margin: 0.5em 0 0 0;
+  padding: 0.8em 1.2em;
+  background-color: var(--light-gray);
+  border-radius: 8px;
+  font-size: 0.95em;
+  line-height: 1.6;
+  font-weight: 500;
+  word-break: keep-all;
+}
+
 /* 프로필 섹션 */
 #profile {
   break-inside: avoid;
@@ -1153,16 +1212,35 @@ section {
     gap: 1em;
   }
 
+  /* 지원동기 섹션 - 빈칸일 때 숨김 */
+  #motivation:has(.motivation-content:empty) {
+    display: none;
+  }
+
+  .motivation-item {
+    page-break-inside: avoid;
+    background-color: #f8f9fa !important;
+  }
+
   /* ===== 독립 블록 설정 - 각 블록이 페이지에 온전히 위치 ===== */
   .header-card,
   .intro-container,
-  .project-header,
-  .project-overview,
-  .project-section,
+  .motivation-item,
   #education,
   #certifications {
     page-break-inside: avoid !important;
     margin-bottom: 1em;
+  }
+
+  /* 프로젝트 메인 블록: 헤더 + 개요 + 문제정의 + 기능구현을 한 페이지에 */
+  .project-main-block {
+    page-break-inside: avoid !important;
+  }
+
+  /* 테크 스택: 별도 블록으로 처리 (안 맞으면 다음 페이지로) */
+  .tech-section {
+    page-break-inside: avoid !important;
+    page-break-before: auto;
   }
 
   /* ===== 상위 컨테이너 분할 허용 ===== */
